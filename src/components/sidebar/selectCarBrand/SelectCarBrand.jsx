@@ -1,5 +1,7 @@
 import Button from 'components/common/button/Button';
 import Input from 'components/common/input/Input';
+import Li from 'components/common/li/Li';
+import Ul from 'components/common/ul/Ul';
 import WrapperComponentModal from 'components/common/wrapper/Wrapper';
 import { getAdverts } from 'components/services/advertsApi';
 import { useEffect, useState } from 'react';
@@ -78,22 +80,23 @@ const SelectCarBrand = () => {
       <Button type="button" onClick={handleClickOpenCarList}>
         Select car
       </Button>
-      <WrapperComponentModal flexDirection="column">
+      <Ul>      
         {getFilterCars().map(({ id, make }) => {
           return (
             openCarsList && (
+              <Li key={id}>
               <Button
-                key={id}
-                type="button"
+                                type="button"
                 value={make}
                 onClick={handleClickCarBrand}
               >
                 {make}
               </Button>
+              </Li>
             )
           );
-        })}
-      </WrapperComponentModal>
+        })}      
+      </Ul>
     </WrapperComponentModal>
   );
 };

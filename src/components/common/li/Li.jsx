@@ -1,8 +1,8 @@
 import StyledLi from "./Li.styled"
 
-const Li = ({children}) => {
+const Li = ({children, ...refs}) => {
     return (
-<StyledLi>{children}</StyledLi>
+<StyledLi {...refs}>{children}</StyledLi>
     )
 }
 

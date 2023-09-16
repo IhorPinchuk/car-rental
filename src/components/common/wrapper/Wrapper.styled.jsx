@@ -7,8 +7,7 @@ flex-direction: ${props => props.flexDirection || 'row'};
   align-items: ${props => props.alignItems || 'center'};
   flex-wrap: ${props => props.flexWrap || 'wrap'};
   gap: ${props => props.gap || '8px'};
-  max-width: ${props => props.maxWidth || '100%'};
-  margin-bottom: ${props => props.marginBottom || '24px'};
+  max-width: ${props => props.maxWidth || '100%'};  
 `;
 
 export default StyledWrapper;

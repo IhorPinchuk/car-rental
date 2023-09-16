@@ -1,3 +1,4 @@
+import CarsList from 'components/carsList/CarsList';
 import Sidebar from 'components/sidebar/Sidebar';
 
 const Catalog = () => {
@@ -5,7 +6,7 @@ const Catalog = () => {
   return (
     <>
       <Sidebar />
-      
+      <CarsList/>
     </>
   );
 };

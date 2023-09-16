@@ -1,5 +1,7 @@
 import Button from 'components/common/button/Button';
 import Input from 'components/common/input/Input';
+import Li from 'components/common/li/Li';
+import Ul from 'components/common/ul/Ul';
 import WrapperComponentModal from 'components/common/wrapper/Wrapper';
 import { getAdverts } from 'components/services/advertsApi';
 import { useEffect, useState } from 'react';
@@ -87,17 +89,19 @@ const SelectPrice = () => {
       <Button type="button" onClick={handleClickOpenPriceList}>
         Select price
       </Button>
-      <WrapperComponentModal flexDirection="column">
-        {getFilterPrice().map(step => {
+      <Ul>
+              {getFilterPrice().map(step => {
           return (
             openPriceList && (
-              <Button key={step} type="button" value={step} onClick={handleClickPriceCost}>
+              <Li key={step}>
+              <Button  type="button" value={step} onClick={handleClickPriceCost}>
                 {step}
               </Button>
+              </Li>
             )
           );
         })}
-      </WrapperComponentModal>
+            </Ul>
     </WrapperComponentModal>
   );
 };
