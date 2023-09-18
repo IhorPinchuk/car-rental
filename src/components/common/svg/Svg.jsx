@@ -1,8 +1,8 @@
 import StyledSvg from "./Svg.styled";
 
-const Svg = ({children, ...rest}) => {
+const Svg = ({onClick, children, ...rest}) => {
     return (
-        <StyledSvg {...rest}>{children}</StyledSvg>
+        <StyledSvg onClick = {onClick} {...rest}>{children}</StyledSvg>
     )
 }
 

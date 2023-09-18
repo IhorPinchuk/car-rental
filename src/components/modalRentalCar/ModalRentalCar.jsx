@@ -9,6 +9,7 @@ import TextInformationCar from 'components/common/textInformationCar/TextInforma
 import WrapperComponentModal from 'components/common/wrapper/Wrapper';
 import { nanoid } from 'nanoid';
 import sprite from '../../images/sprite.svg';
+import A from 'components/common/a/A';
 
 const ModalRentalCar = ({ closeModal, car }) => {
   const {
@@ -82,7 +83,10 @@ const ModalRentalCar = ({ closeModal, car }) => {
         <Text>{rentalConditionsArr[1]}</Text>
         <Text>{rentalConditionsArr[2]}</Text>        
         <Text>Mileage: <Span>{mileage.toLocaleString('en-US')}</Span></Text>        
-        <Text>Price: <Span>{newRentalPrice}$</Span></Text>        
+        <Text>Price: <Span>{newRentalPrice}$</Span></Text>
+        <WrapperComponentModal>
+        <A href="tel:+380730000000">Rental car</A>
+        </WrapperComponentModal>        
       </Section>
       </>
     </Modal>

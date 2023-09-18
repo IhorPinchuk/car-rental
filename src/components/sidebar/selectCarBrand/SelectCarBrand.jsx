@@ -10,7 +10,7 @@ const SelectCarBrand = () => {
   const [openCarsList, setOpenCarsList] = useState(false);
   const [cars, setCars] = useState([]);
   const [filterCarBrand, setFilterCarBrand] = useState('');
-  
+
   useEffect(() => {
     const getCars = async () => {
       try {
@@ -80,22 +80,22 @@ const SelectCarBrand = () => {
       <Button type="button" onClick={handleClickOpenCarList}>
         Select car
       </Button>
-      <Ul>      
+      <Ul>
         {getFilterCars().map(({ id, make }) => {
           return (
             openCarsList && (
               <Li key={id}>
-              <Button
-                                type="button"
-                value={make}
-                onClick={handleClickCarBrand}
-              >
-                {make}
-              </Button>
+                <Button
+                  type="button"
+                  value={make}
+                  onClick={handleClickCarBrand}
+                >
+                  {make}
+                </Button>
               </Li>
             )
           );
-        })}      
+        })}
       </Ul>
     </WrapperComponentModal>
   );

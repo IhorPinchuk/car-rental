@@ -17,3 +17,12 @@ export const getAdvertsList = async (page) => {
     return error.response.data.message;
   }
 };
+
+export const getCurrentAdvert = async (id) => {
+  try {
+    const { data } = await instance(`?id=${id}`);
+    return data;
+  } catch (error) {
+    return error.response.data.message;
+  }
+};
