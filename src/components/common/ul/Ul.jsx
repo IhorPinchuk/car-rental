@@ -1,8 +1,8 @@
 import StyledUl from "./Ul.styled";
 
-const Ul = ({children}) => {
+const Ul = ({children, ...rest}) => {
     return (
-        <StyledUl>{children}</StyledUl>
+        <StyledUl {...rest}>{children}</StyledUl>
     )
 }
 

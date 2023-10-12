@@ -8,7 +8,7 @@ const Favorites = () => {
           ? JSON.parse(localStorage.getItem('carsStorage'))
           : [],
       );
-      console.log(carsStorage)
+      // console.log(carsStorage)
 //   useEffect(() => {
 //     setCarsFavourite(JSON.parse(localStorage.getItem('carsStorage')))
 //   }, [])

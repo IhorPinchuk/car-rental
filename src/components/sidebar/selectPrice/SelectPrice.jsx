@@ -1,10 +1,12 @@
 import Button from 'components/common/button/Button';
 import Input from 'components/common/input/Input';
 import Li from 'components/common/li/Li';
-import Ul from 'components/common/ul/Ul';
-import WrapperComponentModal from 'components/common/wrapper/Wrapper';
+import Svg from 'components/common/svg/Svg';
+import Wrapper from 'components/common/wrapper/Wrapper';
 import { getAdverts } from 'components/services/advertsApi';
 import { useEffect, useState } from 'react';
+import sprite from '../../../images/sprite.svg';
+import UlSelect from 'components/common/ulSelect/UlSelect';
 
 const SelectPrice = () => {
   const [openPriceList, setOpenPriceList] = useState(false);
@@ -67,42 +69,82 @@ const SelectPrice = () => {
     if (filterPrice !== '') {
       setFilterPrice('');
     }
+    if (openPriceList) {
+      setOpenPriceList(false);
+      return;
+    }
     setOpenPriceList(true);
   };
 
-  const handleClickPriceCost = (e) => {
+  const handleClickPriceCost = e => {
     const { value } = e.currentTarget;
     setFilterPrice(value);
     setOpenPriceList(false);
-  }
+  };
 
   return (
-    <WrapperComponentModal flexDirection="column">
-      <Input
-        onChange={handleChangeFilterPrice}
-        value={filterPrice}
-        type="text"
-        name="filterPrice"
-        title="Enter a cost"
-        placeholder="To $"
-      />
-      <Button type="button" onClick={handleClickOpenPriceList}>
-        Select price
-      </Button>
-      <Ul>
-              {getFilterPrice().map(step => {
-          return (
-            openPriceList && (
-              <Li key={step}>
-              <Button  type="button" value={step} onClick={handleClickPriceCost}>
-                {step}
-              </Button>
-              </Li>
-            )
-          );
-        })}
-            </Ul>
-    </WrapperComponentModal>
+    <Wrapper display="block" position="relative">
+      <Wrapper position="relative">
+        <Input
+          onChange={handleChangeFilterPrice}
+          value={filterPrice}
+          type="text"
+          name="filterPrice"
+          title="Enter a cost"
+          placeholder="To $"
+          autocomplete="off"
+        />
+        <Button
+          type="button"
+          onClick={handleClickOpenPriceList}
+          position="absolute"
+          display="flex"
+          top='50%'
+          transform='translate(0, -50%)'
+          right="18px"
+          width='20px'
+          height='20px'
+          backgroundColor='transparent'
+        >
+          <Svg width="20px" height="20px" stroke="var(--secondary-text-color)">
+            <use href={sprite + '#icon-chevron-down'} />
+          </Svg>
+        </Button>
+      </Wrapper>
+      {openPriceList && (
+        <Wrapper
+          display="block"
+          position="absolute"
+          top="52px"
+          border="1px solid var(--selectCarlist-border-color)"
+          borderRadius="14px"
+          paddingTop="14px"
+          paddingBottom="14px"
+          paddingLeft="18px"
+          paddingRight="8px"
+          backgroundColor="var(--selectCarlist-bg-color)"
+          zIndex='1'
+        >
+          <UlSelect>
+            {getFilterPrice().map(step => {
+              return (
+                <Li key={step}>
+                  <Button
+                    type="button"
+                    value={step}
+                    onClick={handleClickPriceCost}
+                    backgroundColor='transparent'
+                    color='var(--selectCarBtn-text-color)'
+                  >
+                    {step}
+                  </Button>
+                </Li>
+              );
+            })}
+          </UlSelect>
+        </Wrapper>
+      )}
+    </Wrapper>
   );
 };
 

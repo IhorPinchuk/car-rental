@@ -11,13 +11,32 @@ export const ModalBackdrop = styled.div`
   justify-content: center;
   align-items: center;
   z-index: 2;
+  overflow: auto;
+
+  ::-webkit-scrollbar {
+    width: ${props => props.widthScrollbar || '8px'};  
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: ${props => props.backgroundColorScrollbarThumb || 'var(--scrollbar-thumb-bg-color)'};
+  border-radius: ${props => props.borderRadiusScrollbarThumb || '4px'};   
+}
+
+::-webkit-scrollbar-track {
+  background-color: ${props => props.backgroundColorScrollbarTrack || 'var(--scrollbar-track-bg-color)'};
+  border-radius: ${props => props.borderRadiusScrollbarTrack || '4px'};  
+}
 `;
 
 export const ModalContent = styled.div`
 position: ${props => props.position || 'absolute'};
+top: 15px;
+/* height: 752px; */
+  /* left: 50%;
+  transform: translate(-50%, -50%); */
 background-color: #ffffff;  
-  padding: 24px;
-  border-radius: 8px;
+  padding: 15px 37px 40px 35px;
+  border-radius: 24px;
 
   @media screen and (min-width: 375px) {
     width: ${props => props.width || '335px'};

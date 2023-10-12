@@ -3,9 +3,12 @@ import SharedLayout from './sharedLayout/SharedLayout';
 import Home from 'pages/Home';
 import Catalog from 'pages/Catalog';
 import Favorites from 'pages/Favorites';
+import { GlobalStyles } from './GlobalStyles';
 
 export const App = () => {
   return (
+    <>
+    <GlobalStyles/>
     <Routes>
       <Route path="/" element={<SharedLayout />} >
         <Route index element={<Home/>} />
@@ -14,5 +17,6 @@ export const App = () => {
       </Route>
       <Route path="*" element={<Home />} />
     </Routes>
+    </>
   );
 };

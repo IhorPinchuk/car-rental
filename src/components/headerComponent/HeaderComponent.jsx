@@ -8,7 +8,7 @@ const HeaderComponent = () => {
     return (
 <Header>
       <Nav>
-        <Ul>
+        <Ul flexWrap='nowrap'>
           <Li>
             <NavLink to='/'>Home</NavLink>
           </Li>

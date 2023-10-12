@@ -1,7 +1,7 @@
 import StyledWrapper from "./Wrapper.styled";
 
-const WrapperComponentModal = ({ children, ...rest }) => {
+const Wrapper = ({ children, ...rest }) => {
     return <StyledWrapper {...rest}>{children}</StyledWrapper>;
   };
 
-  export default WrapperComponentModal;
+  export default Wrapper;

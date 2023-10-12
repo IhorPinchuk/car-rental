@@ -1,8 +1,8 @@
 const { default: StyledText } = require("./Text.styled")
 
-const Text = ({children}) => {
+const Text = ({children, ...rest}) => {
     return (
-        <StyledText>{children}</StyledText>
+        <StyledText {...rest}>{children}</StyledText>
     )
 }
 

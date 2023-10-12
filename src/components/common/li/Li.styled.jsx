@@ -1,8 +1,7 @@
 import styled from '@emotion/styled';
 
 const StyledLi = styled.li`
-width: ${props => props.width || '100%'};
-  height: ${props => props.height || '100%'};
+display: ${props => props.display || 'inline'};
   border-radius: ${props => props.borderRadius || '14px'};
 `;
 
