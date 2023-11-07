@@ -7,11 +7,15 @@ import { useEffect, useState } from 'react';
 import sprite from '../../../images/sprite.svg';
 import Wrapper from 'components/common/wrapper/Wrapper';
 import UlSelect from 'components/common/ulSelect/UlSelect';
+import { useSelectCarBrand } from './SelectCarBrandContext';
 
 const SelectCarBrand = () => {
   const [openCarsList, setOpenCarsList] = useState(false);
   const [cars, setCars] = useState([]);
-  const [filterCarBrand, setFilterCarBrand] = useState('');
+  // const [filterCarBrand, setFilterCarBrand] = useState('');
+  const {filterCarBrand, setFilterCarBrand} = useSelectCarBrand();
+
+
 
   useEffect(() => {
     const getCars = async () => {
